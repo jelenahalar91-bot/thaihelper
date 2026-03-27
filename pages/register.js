@@ -40,6 +40,9 @@ const T = {
     city_ph:         '— Where are you based? —',
     city_other:      '📍 Other in Thailand',
     city_error:      'Please select your city.',
+    area_label:      'Neighborhood / Area',
+    area_ph:         'e.g. Rawai, Sukhumvit, Nimman...',
+    area_hint:       'Optional — helps families nearby find you faster.',
     btn_next1:       'Next: Your Experience →',
     step2_title:     'Your experience',
     step2_sub:       'Help families understand your background and skills.',
@@ -135,6 +138,9 @@ const T = {
     city_ph:         '— คุณอยู่ที่ไหน? —',
     city_other:      '📍 ที่อื่นในไทย',
     city_error:      'กรุณาเลือกเมืองของคุณ',
+    area_label:      'ย่าน / พื้นที่',
+    area_ph:         'เช่น ราไวย์, สุขุมวิท, นิมมาน...',
+    area_hint:       'ไม่บังคับ — ช่วยให้ครอบครัวใกล้บ้านเจอคุณได้ง่ายขึ้น',
     btn_next1:       'ถัดไป: ประสบการณ์ →',
     step2_title:     'ประสบการณ์ของคุณ',
     step2_sub:       'ช่วยให้ครอบครัวเข้าใจภูมิหลังและทักษะของคุณ',
@@ -348,6 +354,7 @@ export default function Register() {
   const [firstname,   setFirstname]   = useState('');
   const [lastname,    setLastname]    = useState('');
   const [city,        setCity]        = useState('');
+  const [area,        setArea]        = useState('');
   const [experience,  setExperience]  = useState('');
   const [languages,   setLanguages]   = useState([]);
   const [rate,        setRate]        = useState('');
@@ -452,6 +459,7 @@ export default function Register() {
       category,
       skills:     skills.join(', '),
       city,
+      area,
       experience,
       languages,
       rate,
@@ -634,6 +642,19 @@ export default function Register() {
                     <option value="other">{t.city_other}</option>
                   </select>
                   <div className="field-error">{errors.city}</div>
+                </div>
+
+                {/* Area / Neighborhood */}
+                <div className="field">
+                  <label>{t.area_label}</label>
+                  <input
+                    type="text"
+                    value={area}
+                    placeholder={t.area_ph}
+                    maxLength={60}
+                    onChange={e => setArea(e.target.value)}
+                  />
+                  <div className="field-hint">{t.area_hint}</div>
                 </div>
 
                 <div className="btn-row" style={{ justifyContent: 'flex-end' }}>
