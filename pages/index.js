@@ -230,7 +230,7 @@ export default function Home() {
               />
               <div className="hero-img-float">
                 <span className="gold-dot"></span>
-                <span>{lang === 'th' ? '✓ ลงทะเบียนฟรี 100%' : '✓ 100% Free to Register'}</span>
+                <span>{lang === 'th' ? '✓ ฟรีตลอด ไม่มีค่าใช้จ่ายซ่อนเร้น' : '✓ Free Forever – No Hidden Fees'}</span>
               </div>
             </div>
 
@@ -496,18 +496,10 @@ export default function Home() {
             <h2 className="section-title">{t.cta_title}</h2>
             <p className="section-sub">{t.cta_sub}</p>
             <div className="cta-box">
-              <div className="cta-with-img">
-                <div className="cta-img">
-                  <img
-                    src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=340&fit=crop&crop=face"
-                    alt="Happy provider"
-                  />
-                </div>
-                <div className="cta-text">
-                  <p>{t.cta_body}</p>
-                  <Link className="btn-gold" href="/register">{t.cta_btn}</Link>
-                  <p className="cta-note">{t.cta_note}</p>
-                </div>
+              <div className="cta-text">
+                <p>{t.cta_body}</p>
+                <Link className="btn-gold" href="/register">{t.cta_btn}</Link>
+                <p className="cta-note">{t.cta_note}</p>
               </div>
             </div>
           </div>
