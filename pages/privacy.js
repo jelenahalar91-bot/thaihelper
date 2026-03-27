@@ -84,7 +84,9 @@ function PrivacyEN() {
       <p>When you register as a service provider, we collect the following information:</p>
       <ul>
         <li>Full name</li>
+        <li>Age</li>
         <li>City / location in Thailand</li>
+        <li>Neighborhood / Area within the city</li>
         <li>Service category and specific skills</li>
         <li>Years of experience</li>
         <li>Languages spoken</li>
@@ -112,7 +114,7 @@ function PrivacyEN() {
 
       <h2>5. Where Your Data Is Stored</h2>
       <p>
-        Your registration data is stored in Google Sheets, a service provided by Google LLC (USA). Google processes data in accordance with their Privacy Policy and is certified under the EU-US Data Privacy Framework. Your profile information may also be displayed on this website, which is hosted via Netlify, Inc. (USA).
+        Your registration data is stored in Google Sheets, a service provided by Google LLC (USA). Google processes data in accordance with their Privacy Policy and is certified under the EU-US Data Privacy Framework. Your profile information may also be displayed on this website, which is hosted via Vercel, Inc. (USA).
       </p>
       <p>
         Profile photos you upload are stored temporarily during the registration process. We do not store photos on external servers at this time.
