@@ -72,9 +72,10 @@ const T = {
     btn_next2:       'Next: Contact Info →',
     step3_title:     'How to reach you',
     step3_sub:       'Only paying families will see your contact details. Your data is safe.',
-    wa_label:        'WhatsApp Number',
+    wa_label:        'Phone Number',
     wa_hint:         'Include country code. This is how employers will contact you.',
-    wa_error:        'Please enter a valid WhatsApp number.',
+    wa_check:        'This number is reachable via WhatsApp',
+    wa_error:        'Please enter a valid phone number.',
     email_label:     'Email Address',
     email_error:     'Please enter a valid email address.',
     photo_label:     'Profile Photo',
@@ -170,9 +171,10 @@ const T = {
     btn_next2:       'ถัดไป: ข้อมูลติดต่อ →',
     step3_title:     'ช่องทางติดต่อ',
     step3_sub:       'เฉพาะครอบครัวที่สมัครสมาชิกเท่านั้นที่จะเห็นข้อมูลติดต่อของคุณ ข้อมูลของคุณปลอดภัย',
-    wa_label:        'เบอร์ WhatsApp',
+    wa_label:        'เบอร์โทรศัพท์',
     wa_hint:         'ใส่รหัสประเทศด้วย นี่คือช่องทางที่นายจ้างจะติดต่อคุณ',
-    wa_error:        'กรุณากรอกเบอร์ WhatsApp ที่ถูกต้อง',
+    wa_check:        'เบอร์นี้ใช้ WhatsApp ได้',
+    wa_error:        'กรุณากรอกเบอร์โทรศัพท์ที่ถูกต้อง',
     email_label:     'อีเมล',
     email_error:     'กรุณากรอกอีเมลที่ถูกต้อง',
     photo_label:     'รูปโปรไฟล์',
@@ -360,6 +362,7 @@ export default function Register() {
   const [rate,        setRate]        = useState('');
   const [bio,         setBio]         = useState('');
   const [whatsapp,    setWhatsapp]    = useState('');
+  const [hasWhatsApp, setHasWhatsApp] = useState(true);
   const [email,       setEmail]       = useState('');
   const [terms,       setTerms]       = useState(false);
   const [photoFile,   setPhotoFile]   = useState(null);
@@ -465,6 +468,7 @@ export default function Register() {
       rate,
       bio:        bio.trim(),
       whatsapp:   whatsapp.trim(),
+      hasWhatsApp,
       email:      email.trim(),
     };
 
@@ -765,6 +769,10 @@ export default function Register() {
                   <input type="tel" value={whatsapp} placeholder="+66 81 234 5678"
                     onChange={e => { setWhatsapp(e.target.value); setErrors(ev => ({...ev, whatsapp:''})); }} />
                   <div className="field-hint">{t.wa_hint}</div>
+                  <label className="checkbox-row">
+                    <input type="checkbox" checked={hasWhatsApp} onChange={e => setHasWhatsApp(e.target.checked)} />
+                    <span>{t.wa_check}</span>
+                  </label>
                   <div className="field-error">{errors.whatsapp}</div>
                 </div>
 
