@@ -613,8 +613,8 @@ select { appearance: none; cursor: pointer;
   .why-grid-full { grid-template-columns: 1fr; gap: 16px; }
 
   /* CATEGORIES */
-  .categories { gap: 8px; }
-  .category-pill { font-size: 0.82rem; padding: 8px 14px; }
+  .categories { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .category-pill { font-size: 0.82rem; padding: 10px 12px; text-align: center; width: 100%; justify-content: center; }
 
   /* CTA SECTION */
   .cta-box { padding: 28px 20px; }
