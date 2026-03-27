@@ -7,6 +7,7 @@ import TextRotate from '../components/TextRotate';
 const T = {
   en: {
     nav_cta:       'Register Free →',
+    nav_helpers:   'Browse Helpers',
     hero_badge:    '🇹🇭 Now Launching in Thailand',
     hero_h1:       'Stop Paying Agencies. Get Hired Directly.',
     hero_h1_em:    'Employers pay to contact you. You join free — forever.',
@@ -85,6 +86,7 @@ const T = {
   },
   th: {
     nav_cta:       'ลงทะเบียนฟรี →',
+    nav_helpers:   'ค้นหาผู้ช่วย',
     hero_badge:    '🇹🇭 เปิดตัวในประเทศไทยแล้ว',
     hero_h1:       'หยุดจ่ายค่าเอเจนซี่ หางานโดยตรง',
     hero_h1_em:    'นายจ้างจ่ายเพื่อติดต่อคุณ คุณสมัครฟรีตลอดไป',
@@ -194,6 +196,7 @@ export default function Home() {
         <nav>
           <a className="nav-brand" href="#">Thai<span>Helper</span></a>
           <div className="nav-right">
+            <Link className="nav-link" href="/helpers">{t.nav_helpers}</Link>
             <div className="lang-toggle">
               <button
                 className={`lang-btn ${lang === 'en' ? 'active' : ''}`}
