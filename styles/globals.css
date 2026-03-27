@@ -363,6 +363,24 @@ select { appearance: none; cursor: pointer;
 .check-mark { width: 18px; height: 18px; border-radius: 4px; border: 2px solid var(--gray-400); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.15s; font-size: 0.7rem; }
 .checkbox-item.checked .check-mark { background: var(--teal); border-color: var(--teal); color: white; }
 
+/* CHECKBOX ROW */
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--gray-700);
+  user-select: none;
+}
+.checkbox-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--teal);
+  cursor: pointer;
+}
+
 /* PHOTO UPLOAD */
 .photo-upload { border: 2px dashed var(--gray-200); border-radius: var(--radius); padding: 32px; text-align: center; cursor: pointer; transition: all 0.2s; background: var(--gray-50); position: relative; overflow: hidden; }
 .photo-upload:hover { border-color: var(--teal); background: var(--teal-light); }
@@ -816,17 +834,19 @@ select { appearance: none; cursor: pointer;
   border-radius: 20px; font-size: 0.82rem; color: var(--gray-700);
 }
 
-.helper-card-footer { margin-top: auto; }
-.helper-contact-btn {
-  display: block; width: 100%; padding: 12px;
-  background: var(--teal); color: var(--white);
-  border: none; border-radius: var(--radius-sm);
-  font-size: 0.95rem; font-weight: 600; font-family: inherit;
-  cursor: pointer; text-align: center; text-decoration: none;
-  transition: background 0.2s;
-}
-.helper-contact-btn:hover { background: var(--navy); }
-.helper-contact-btn.disabled { background: var(--gray-200); color: var(--gray-400); cursor: not-allowed; }
+.helper-card-footer { margin-top: auto; display: flex; flex-direction: column; gap: 8px; }
+.helper-contact-row { display: flex; align-items: center; gap: 8px; }
+.helper-contact-btn { display: block; width: 100%; padding: 10px 14px; border: none; border-radius: var(--radius-sm); font-size: 0.88rem; font-weight: 600; font-family: inherit; cursor: pointer; text-align: center; text-decoration: none; transition: all 0.2s; }
+.helper-contact-btn.phone { background: var(--gray-50); border: 1.5px solid var(--gray-200); color: var(--navy); font-weight: 500; text-align: left; flex: 1; }
+.helper-contact-btn.phone:hover { border-color: var(--teal); background: var(--teal-light); }
+.helper-contact-btn.whatsapp { background: #25D366; color: white; }
+.helper-contact-btn.whatsapp:hover { background: #1da851; }
+.helper-contact-btn.email { background: var(--gray-50); border: 1.5px solid var(--gray-200); color: var(--navy); font-weight: 500; font-size: 0.85rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.helper-contact-btn.email:hover { border-color: var(--teal); background: var(--teal-light); }
+.wa-badge { padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; white-space: nowrap; flex-shrink: 0; }
+.wa-badge.wa-yes { background: #E8F5E9; color: #2E7D32; }
+.wa-badge.wa-no { background: var(--gray-100); color: var(--gray-500); }
+.helper-no-contact { text-align: center; color: var(--gray-400); font-size: 0.85rem; padding: 12px; }
 
 .helpers-cta {
   background: var(--gray-50); padding: 60px 24px; text-align: center;
