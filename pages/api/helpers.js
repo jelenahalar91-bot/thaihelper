@@ -105,21 +105,22 @@ export default async function handler(req, res) {
         const vals = row.c.map(cell => (cell && cell.v != null) ? String(cell.v) : '');
         const obj = {};
         cols.forEach((col, i) => {
-          if (col.includes('name') || col.includes('\u0E0A\u0E37\u0E48\u0E2D')) obj.name = vals[i];
-          else if (col.includes('city') || col.includes('\u0E00\u0E21\u0E37\u0E2D\u0E07') || col.includes('\u0E08\u0E31\u0E07\u0E2B\u0E27\u0E31\u0D14')) obj.city = vals[i];
-          else if (col.includes('area') || col.includes('\u0E22\u0E48\u0E32\u0E19') || col.includes('\u0E1E\u0E37\u0E49\u0E19\u0E17\u0E35\u0E48')) obj.area = vals[i];
-          else if (col.includes('categor') || col.includes('service') || col.includes('\u0E1A\u0E23\u0E34\u0E01\u0E32\u0E23') || col.includes('\u0E1B\u0E23\u0E30\u0E40\u0E20\u0E17')) obj.category = vals[i];
-          else if (col.includes('experience') || col.includes('\u0E1B\u0E23\u0E30\u0E2A\u0E1A\u0E01\u0E32\u0E23\u0E13\u0E4C')) obj.experience = vals[i];
-          else if (col.includes('language') || col.includes('\u0E20\u0E32\u0E29\u0E32')) obj.languages = vals[i];
-          else if (col.includes('phone') || col.includes('whatsapp') || col.includes('\u0E42\u0E17\u0E23\u0E28\u0E31\u0E1E\u0E17\u0E4C')) obj.phone = vals[i];
+          // Map common column names
+          if (col.includes('name') || col.includes('ชื่อ')) obj.name = vals[i];
+          else if (col.includes('city') || col.includes('เมือง') || col.includes('จังหวัด')) obj.city = vals[i];
+          else if (col.includes('area') || col.includes('ย่าน') || col.includes('พื้นที่')) obj.area = vals[i];
+          else if (col.includes('categor') || col.includes('service') || col.includes('บริการ') || col.includes('ประเภท')) obj.category = vals[i];
+          else if (col.includes('experience') || col.includes('ประสบการณ์')) obj.experience = vals[i];
+          else if (col.includes('language') || col.includes('ภาษา')) obj.languages = vals[i];
+          else if (col.includes('phone') || col.includes('whatsapp') || col.includes('โทรศัพท์')) obj.phone = vals[i];
           else if (col.includes('haswhatsapp')) obj.hasWhatsApp = vals[i] === 'true' || vals[i] === 'TRUE' || vals[i] === '1';
-          else if (col.includes('email') || col.includes('\u0E2D\u0E35\u0E40\u0E21\u0E25')) obj.email = vals[i];
-          else if (col.includes('about') || col.includes('\u0E40\u0E01\u0E35\u0E48\u0E22\u0E27\u0E01\u0E31\u0E1A') || col.includes('description')) obj.about = vals[i];
-          else if (col.includes('age') || col.includes('\u0E2D\u0E32\u0E22\u0E38')) obj.age = vals[i];
+          else if (col.includes('email') || col.includes('อีเมล')) obj.email = vals[i];
+          else if (col.includes('about') || col.includes('เกี่ยวกับ') || col.includes('description')) obj.about = vals[i];
+          else if (col.includes('age') || col.includes('อายุ')) obj.age = vals[i];
         });
         return obj;
       })
-      .filter(h => h.name);
+      .filter(h => h.name); // Only include rows with a name
 
     return res.status(200).json({ helpers, demo: false });
   } catch (err) {
