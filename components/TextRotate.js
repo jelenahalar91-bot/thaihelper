@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 /**
- * TextRotate  pure React/CSS, no external libraries needed.
+ * TextRotate — pure React/CSS, no external libraries needed.
  * Shows one word at a time, animating in from below and out upward.
  */
 export default function TextRotate({ texts, interval = 2000, className = '' }) {
