@@ -124,7 +124,7 @@ export default function Helpers() {
 
   // Filters
   const [filterCity, setFilterCity] = useState('');
-  const [filterCat, sepsetFilterCat] = useState('');
+  const [filterCat, setFilterCat] = useState('');
   const [filterArea, setFilterArea] = useState('');
 
   useEffect(() => {
